@@ -1,7 +1,6 @@
 {
   "name": "diplom.com",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "watch": "webpack --watch",
@@ -13,5 +12,15 @@
     "webpack": "^5.21.2",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
-  }
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adam-Idler/diplom_js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Adam-Idler/diplom_js/issues"
+  },
+  "homepage": "https://github.com/Adam-Idler/diplom_js#readme",
+  "description": ""
 }
