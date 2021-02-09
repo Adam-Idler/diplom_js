@@ -1,0 +1,35 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.fixed {
+    position: fixed;
+}
+
+#totop {
+    display: none;
+}
+
+.active {
+    display: block!important;
+}
+
+.clubs-list ul.active li:first-of-type {
+    animation: menu 0.4s ease-in-out forwards;
+}
+  
+.clubs-list ul.active li:last-of-type {
+    animation: menu 0.4s ease-in-out forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes menu {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+  }
