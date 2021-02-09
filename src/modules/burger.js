@@ -9,13 +9,29 @@ class Burger {
         this.popup = document.querySelector('.popup-menu');
     }
 
+    render() {
+        checkResize.apply(this);
+        window.addEventListener('resize', checkResize.bind(this));
+        
+        function checkResize() {
+            if (window.innerWidth < 768) {
+                this.menu.style.display = 'none';
+                document.querySelector('.hidden-large').style.display = 'block';
+                
+            } else {
+                this.menu.style.display = 'flex';
+                document.querySelector('.hidden-large').style.display = 'none';
+            }
+        }
+        
+        this.burgerFix();
+    }
+
     burgerFix() {
         let posMenu = this.topMenu.offsetTop;
 
         window.addEventListener('scroll', () => {
-            let display = window.getComputedStyle(this.burgerMenu).getPropertyValue("display");
-
-            if (display === 'block' && document.documentElement.scrollTop > posMenu) {
+            if (window.innerWidth < 768 && document.documentElement.scrollTop > posMenu) {
                 this.topMenu.classList.add('fixed');
             } else {
                 this.topMenu.classList.remove('fixed');

@@ -2393,14 +2393,6 @@ p.personal-data input[type=checkbox]:checked+label:before {
         font-size: 12px
     }
 
-    .hidden-small {
-        display: none !important
-    }
-
-    .hidden-large {
-        display: block
-    }
-
     header {
         margin-bottom: 0
     }

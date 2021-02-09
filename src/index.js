@@ -16,7 +16,7 @@ gift.giftAppear();
 // Фиксация Бургер Меню 
 const burger = new Burger();
 
-burger.burgerFix();
+burger.render();
 
 // Появление стрелки
 const arrow = new ArrowBtn();
