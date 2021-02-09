@@ -2,6 +2,7 @@
 
 class Calculator {
     constructor() {
+        this.promo = document.getElementById('promo');
         this.form = document.getElementById('card_order');
         this.total = document.getElementById('price-total');
         this.cards = this.form.querySelectorAll('[name="card-type"]');
@@ -17,7 +18,11 @@ class Calculator {
             });
 
             this.cards.forEach((card => {
-                if (card.checked) this.total.innerText = card.getAttribute(`data-price-${clubName}`);
+                if (card.checked) {
+                    let price = card.getAttribute(`data-price-${clubName}`);
+                    this.promo.value === 'ТЕЛО2019' ? price -= price*0.3 : '';
+                    this.total.innerText = Math.round(price);
+                } 
             }))
         });
     }
