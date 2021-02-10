@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
 
     <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/my-style.css">
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    
 </head>
 <body>
 <header class="header-main">
@@ -58,11 +60,11 @@
                 <li class="scroll"><a href="#footer">Контакты</a></li>
             </ul>
             <div class="menu-button hidden-large">
-                <img src="images/menu-button.png" alt="">
+                <img src="images/menu-button.png" alt="" data-popup='.popup-menu'>
             </div>
         </div>
     </nav>
-    <nav class="popup-menu hidden-large">
+    <nav class="popup popup-menu hidden-large">
         <div class="close-menu-btn">
             <img src="images/delete.png" alt="">
         </div>
@@ -276,23 +278,23 @@
         <h2>выбрать карту</h2>
         <form action="" id="card_order">
             <div class="cards-types">
-                <input id="t1" type="radio" name="card-type" value="1s" checked>
+                <input id="t1" type="radio" name="card-type" value="1s" data-price="1999" checked>
                 <label for="t1"><span class="long">1 месяц</span><br><span class="solo">- соло -</span><br><span
                         class="cost">1999<span class="rubl">i</span></span><br><span
                         class="frost">* Без заморозки</span></label>
-                <input id="t2" type="radio" name="card-type" value="6s">
+                <input id="t2" type="radio" name="card-type" value="6s" data-price="9900">
                 <label for="t2"><span class="long">6 месяцев</span><br><span class="solo">- соло -</span><br><span
                         class="cost">9900<span class="rubl">i</span></span><br><span
                         class="frost">* Без заморозки</span></label>
-                <input id="t3" type="radio" name="card-type" value="9s">
+                <input id="t3" type="radio" name="card-type" value="9s" data-price="13900">
                 <label for="t3"><span class="long">9 месяцев</span><br><span class="solo">- соло -</span><br><span
                         class="cost">13900<span class="rubl">i</span></span><br><span
                         class="frost">* Без заморозки</span></label>
-                <input id="t4" type="radio" name="card-type" value="12d">
+                <input id="t4" type="radio" name="card-type" value="12d" data-price="9900">
                 <label for="t4"><span class="long">12 месяцев</span><br><span class="solo">- дневная -</span><br><span
                         class="cost">9900<span class="rubl">i</span></span><br><span
                         class="frost">* 1 месяц заморозки</span></label>
-                <input id="t5" type="radio" name="card-type" value="12s">
+                <input id="t5" type="radio" name="card-type" value="12s" data-price="19900">
                 <label for="t5"><span class="long">12 месяцев</span><br><span class="solo">- соло -</span><br><span
                         class="cost">19900<span class="rubl">i</span></span><br><span
                         class="frost">* 1 месяц заморозки</span></label>
@@ -570,6 +572,7 @@
     </div>
 </div>
 
+<script src="./dist/dev-bundle.js"></script>
 
 </body>
 </html>

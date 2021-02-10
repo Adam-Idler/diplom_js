@@ -11,7 +11,12 @@ import ModalWindows from './modules/modalWindows';
 // Подарок
 const gift = new Gift();
 
-gift.giftAppear();
+document.getElementById('gift') ? gift.giftAppear() : '';
+
+// Калькулятор
+const calculator = new Calculator();
+
+document.getElementById('price-total') ? calculator.calc() : '';
 
 // Фиксация Бургер Меню 
 const burger = new Burger();
@@ -33,7 +38,3 @@ const modalWindow = new ModalWindows();
 
 modalWindow.showModal();
 
-// Калькулятор
-const calculator = new Calculator();
-
-calculator.calc();
