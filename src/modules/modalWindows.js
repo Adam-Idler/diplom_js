@@ -22,6 +22,7 @@ class ModalWindows {
     
                 if (target.tagName === 'IMG'
                  || target.tagName === 'A'
+                 || target.classList.contains('close-btn')
                  || target.closest('.overlay')) {
     
                     bg.style.display = 'none';

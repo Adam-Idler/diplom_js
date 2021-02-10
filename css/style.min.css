@@ -2233,7 +2233,7 @@ p.personal-data input[type=checkbox]:checked+label:before {
     background-color: #fff
 }
 
-#thanks .form-content p {
+#thanks .form-content p, #error .form-content p {
     font-size: 20px;
     width: 90%;
     color: #fff;
@@ -2241,7 +2241,15 @@ p.personal-data input[type=checkbox]:checked+label:before {
     margin-top: 30px
 }
 
-#thanks .form-content .close-btn {
+#error .form-content p {
+    margin-top: 0;
+}
+
+#error .form-content p span {
+    color: #ff3437;
+}
+
+#thanks .form-content .close-btn, #error .form-content .close-btn {
     margin-top: 15px;
     text-transform: uppercase;
     font-size: 20px
