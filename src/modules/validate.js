@@ -30,6 +30,11 @@ class Validate {
                 }
             }
             if (target.getAttribute('name') === 'phone') {
+                if (target.value.match(/[^0-9\+\-\s\(\)]/gi)) {
+                    target.classList.add('wrong_input');
+                } else {
+                    target.classList.remove('wrong_input');
+                }
                 if (target.value[1] === '7' || target.value[0] === '7' ) maskPhone('input[name="phone"]', '+_ (___) ___-__-__');
                 else if (target.value[0] === '8') maskPhone('input[name="phone"]', '_ (___) ___-__-__');
                 else if (target.value[0] === '2') maskPhone('input[name="phone"]', '___-__-__');

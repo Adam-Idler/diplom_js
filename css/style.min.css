@@ -1402,7 +1402,7 @@ nav.popup-menu .close-menu-btn img {
     margin-right: 5px
 }
 
-.slider-dots li.slick-active button {
+.slider-dots .slick-active {
     background-color: #ffd11a
 }
 
@@ -1539,7 +1539,8 @@ nav.popup-menu .close-menu-btn img {
     display: flex;
     margin: 0 auto;
     padding-left: 15px;
-    padding-right: 15px
+    padding-right: 15px;
+    position: relative;
 }
 
 .services-slider .slide {
@@ -1610,7 +1611,8 @@ nav.popup-menu .close-menu-btn img {
     padding-right: 75px;
     max-width: 900px;
     margin: 0 auto;
-    text-align: center
+    text-align: center;
+    position: relative;
 }
 
 #gallery .gallery-slider .slide {

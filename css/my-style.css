@@ -2,6 +2,10 @@ html {
     scroll-behavior: smooth;
 }
 
+li {
+    list-style-type: none;
+}
+
 .fixed {
     position: fixed;
 }
@@ -14,13 +18,22 @@ html {
     display: block!important;
 }
 
-.active-slide {
+.active-main-slide {
     display: flex!important;
+    animation: anim 0.5s ease-in-out;
+}
+
+.active-service-slide {
+    display: block!important;
     animation: anim 0.5s ease-in-out;
 }
 
 .non-active-slide {
     display: none!important;
+}
+
+.slider-arrow::selection, .slider-arrow *::selection {
+    background: transparent;
 }
 
 .clubs-list ul.active li:first-of-type {

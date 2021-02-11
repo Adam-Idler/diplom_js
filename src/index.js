@@ -56,3 +56,5 @@ validate.init();
 const sliders = new Slider();
 
 sliders.mainSliderActivate();
+sliders.serviceSliderActivate();
+sliders.gallerySliderActivate();

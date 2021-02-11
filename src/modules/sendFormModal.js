@@ -4,6 +4,7 @@ class sendFormModal {
     constructor() {
         this.forms = document.querySelectorAll('form');
         this.popup = document.querySelectorAll('.popup');
+        this.errorBlock = document.getElementById('error');
         this.thanksBlock = document.getElementById('thanks');
     }
 
@@ -40,7 +41,8 @@ class sendFormModal {
         
         this.forms.forEach( (form) => {
             let checkbox = form.querySelector('[type="checkbox"]'),
-                name = form.querySelector('[name="name"]');
+                name = form.querySelector('[name="name"]'),
+                phone = form.querySelector('[name="phone"]');
 
             form.addEventListener('submit', (event) => {
                 try {
@@ -48,7 +50,9 @@ class sendFormModal {
                     if (name && name.classList.contains('wrong_input')) {
                         return;
                     }
-                    
+                    if (phone && phone.classList.contains('wrong_input')) {
+                        return;
+                    }
                     if (checkbox && !checkbox.checked) {
                         throw new notChecked();
                     } else if (form.querySelector('p > label')) {
@@ -102,7 +106,7 @@ class sendFormModal {
                         }
     
                         this.popup.forEach((item) => item.style.display = 'none');
-                        errorBlock.style.display = 'block';
+                        this.errorBlock.style.display = 'block';
                     });
                     form.reset();
                 } catch(err) {              
