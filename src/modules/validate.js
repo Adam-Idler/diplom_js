@@ -35,9 +35,8 @@ class Validate {
                 } else {
                     target.classList.remove('wrong_input');
                 }
-                if (target.value[1] === '7' || target.value[0] === '7' ) maskPhone('input[name="phone"]', '+_ (___) ___-__-__');
-                else if (target.value[0] === '8') maskPhone('input[name="phone"]', '_ (___) ___-__-__');
-                else if (target.value[0] === '2') maskPhone('input[name="phone"]', '___-__-__');
+
+                maskPhone('input[name="phone"]', '+_ (___) ___-__-__');
             }
             });
         });
