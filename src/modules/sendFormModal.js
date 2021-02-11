@@ -4,8 +4,6 @@ class sendFormModal {
     constructor() {
         this.forms = document.querySelectorAll('form');
         this.popup = document.querySelectorAll('.popup');
-        this.errorBlock = document.getElementById('error');
-        this.errorText = error.querySelector('.error-text');
         this.thanksBlock = document.getElementById('thanks');
     }
 
@@ -50,17 +48,18 @@ class sendFormModal {
                     if (name && name.classList.contains('wrong_input')) {
                         return;
                     }
+                    
                     if (checkbox && !checkbox.checked) {
-                        throw new notChecked('Дайте согласие на обработку персональных данных');
-                    } else {
-                        form.querySelector('label').classList.remove('wrong_rights');
+                        throw new notChecked();
+                    } else if (form.querySelector('p > label')) {
+                        form.querySelector('p > label').classList.remove('wrong_rights');
                     }
-
+                    
                     if (form.id == 'footer_form') {
                         let checked = [...form.querySelectorAll('[type="radio"]')].some((radio) => radio.checked);
-
+                        
                         if (!checked) {
-                            throw new Error('Выберите удобный для Вас клуб');
+                            throw new Error();
                         } else {
                             form.querySelector('.choose-club').classList.remove('wrong_club');
                         }
@@ -105,17 +104,17 @@ class sendFormModal {
                         this.popup.forEach((item) => item.style.display = 'none');
                         errorBlock.style.display = 'block';
                     });
-    
                     form.reset();
-                } catch(err) {
+                } catch(err) {              
                     if (err.name == 'ReferenceError') {
-                        form.querySelector('label').classList.add('wrong_rights');
-                    } else {
+                        form.querySelector('p > label').classList.add('wrong_rights');
+                    } else if (err.name == 'Error') {
                         form.querySelector('.choose-club').classList.add('wrong_club');
+                    } else {
+                        throw err;
                     }
                 }
             });
-            
         });
     }
 }
