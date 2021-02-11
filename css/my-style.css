@@ -32,4 +32,18 @@ html {
         opacity: 1;
         transform: translateX(0);
       }
-  }
+}
+
+.wrong_rights {
+    border-bottom: 2px solid #e22e2e;
+}
+
+.wrong_input {
+    border: 2px solid #e22e2e!important;
+}
+
+.wrong_club {
+    border: 2px solid #e22e2e;
+    border-radius: 10px;
+    padding: 10px;
+}

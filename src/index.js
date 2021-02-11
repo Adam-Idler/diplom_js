@@ -2,12 +2,14 @@
 
 import Gift from './modules/gift';
 import Burger from './modules/burger';
+import Slider from './modules/sliders'
 import Validate from './modules/validate';
 import ArrowBtn from './modules/arrowBtn';
 import Calculator from './modules/calculator';
 import DropDown from './modules/dropDownMenu';
 import ModalWindows from './modules/modalWindows';
 import SendFormModal from './modules/sendFormModal';
+
 
 
 // Подарок
@@ -49,3 +51,5 @@ sendFormModal.sendAjax();
 const validate = new Validate();
 
 validate.init();
+
+// Слайдеры

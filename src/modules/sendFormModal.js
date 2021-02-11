@@ -21,7 +21,6 @@ class sendFormModal {
 
     sendAjax() {
         const loadingAnim = document.createElement('div');
-        console.log(this.errorBlock);
         loadingAnim.style.cssText = ` 
             width: 3em;
             height: 3em;
@@ -42,19 +41,29 @@ class sendFormModal {
         });
         
         this.forms.forEach( (form) => {
-            let checkbox = form.querySelector('[type="checkbox"]');
+            let checkbox = form.querySelector('[type="checkbox"]'),
+                name = form.querySelector('[name="name"]');
 
             form.addEventListener('submit', (event) => {
                 try {
                     event.preventDefault();
+                    if (name && name.classList.contains('wrong_input')) {
+                        return;
+                    }
                     if (checkbox && !checkbox.checked) {
-                        throw new Error('Дайте согласие на обработку персональных данных');
+                        throw new notChecked('Дайте согласие на обработку персональных данных');
+                    } else {
+                        form.querySelector('label').classList.remove('wrong_rights');
                     }
 
                     if (form.id == 'footer_form') {
                         let checked = [...form.querySelectorAll('[type="radio"]')].some((radio) => radio.checked);
 
-                        if (!checked) throw new Error('Выберите удобный для Вас клуб');
+                        if (!checked) {
+                            throw new Error('Выберите удобный для Вас клуб');
+                        } else {
+                            form.querySelector('.choose-club').classList.remove('wrong_club');
+                        }
                     }
 
                     for (let i = 0, len = form.elements.length; i < len; ++i) {
@@ -99,10 +108,11 @@ class sendFormModal {
     
                     form.reset();
                 } catch(err) {
-                    this.errorText.innerText = err.message;
-
-                    this.popup.forEach((item) => item.style.display = 'none');
-                    this.errorBlock.style.display = 'block';
+                    if (err.name == 'ReferenceError') {
+                        form.querySelector('label').classList.add('wrong_rights');
+                    } else {
+                        form.querySelector('.choose-club').classList.add('wrong_club');
+                    }
                 }
             });
             

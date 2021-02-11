@@ -8,6 +8,7 @@ class Validate {
 
     init() {
         this.validateInputText();
+
         this.namesInput.forEach(elem => {
             elem.onblur = (e) => {
               if (e.target.value.length < 2) {
@@ -15,14 +16,18 @@ class Validate {
               }
             };
         });
-
     }
+
     validateInputText() {
         this.textForm.forEach( (form) => {
             form.addEventListener('input', e => {
             const target = e.target;
             if (target.getAttribute('name') === 'name') {
-                target.value = target.value.replace(/[^а-яё\s]{2,15}/gi, '');
+                if (target.value.match(/[^а-яё\s]{1,15}/gi)) {
+                    target.classList.add('wrong_input');
+                } else {
+                    target.classList.remove('wrong_input');
+                }
             }
             if (target.getAttribute('name') === 'phone') {
                 if (target.value[1] === '7' || target.value[0] === '7' ) maskPhone('input[name="phone"]', '+_ (___) ___-__-__');
