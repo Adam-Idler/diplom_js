@@ -14,16 +14,25 @@ html {
     display: block!important;
 }
 
+.active-slide {
+    display: flex!important;
+    animation: anim 0.5s ease-in-out;
+}
+
+.non-active-slide {
+    display: none!important;
+}
+
 .clubs-list ul.active li:first-of-type {
-    animation: menu 0.4s ease-in-out forwards;
+    animation: anim 0.4s ease-in-out forwards;
 }
   
 .clubs-list ul.active li:last-of-type {
-    animation: menu 0.4s ease-in-out forwards;
+    animation: anim 0.4s ease-in-out forwards;
     animation-delay: 0.2s;
 }
 
-@keyframes menu {
+@keyframes anim {
     0% {
         opacity: 0;
         transform: translateX(20px);

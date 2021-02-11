@@ -53,3 +53,6 @@ const validate = new Validate();
 validate.init();
 
 // Слайдеры
+const sliders = new Slider();
+
+sliders.mainSliderActivate();
