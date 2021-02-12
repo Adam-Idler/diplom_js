@@ -25,35 +25,37 @@ class Slider {
 		startSlide(4000);
     }
 
-    // serviceSliderActivate() {
-    //     const slides = [...document.querySelectorAll('.services-slider .slide')],
-    //           slider = document.querySelector('.services-slider');
-    //     let currentSlide = 3;
+    serviceSliderActivate() {
+        const slider = document.querySelector('.services-slider');
 
-    //     const prevSlide = (elem, index, strClass) => elem[index].classList.remove(strClass);
-    //     const nextSlide = (elem, index, strClass) => elem[index].classList.add(strClass);
+		let list = document.querySelector('.carousel');
 
-    //     slider.addEventListener('click', (event) => {
-	// 		event.preventDefault();
+		let width = 226;
+		let count = 1;
 
-	// 		let target = event.target;
+		let position = 0;
 
-	// 		if (!target.matches('.slider-arrow, .slider-arrow *, .dot')) return;
+		slider.addEventListener('click', (event) => {
+			event.preventDefault();
 
-	// 		prevSlide(slides, currentSlide, 'active-service-slide');
-    //         nextSlide(slides, currentSlide, 'non-active-slide');
+			let target = event.target;
 
-	// 		if(target.matches('.slider-arrow.next, .slider-arrow.next *')) {
-	// 			currentSlide++;
-	// 		} else if (target.matches('.slider-arrow.prev, .slider-arrow.prev *')) {
-	// 			currentSlide--;
-    //         }
-	// 		if (currentSlide >= slides.length) currentSlide = 0;
-	// 		if (currentSlide < 0) currentSlide = slides.length - 1;
-    //         prevSlide(slides, currentSlide, 'non-active-slide');
-	// 		nextSlide(slides, currentSlide, 'active-service-slide');
-	// 	});
-    // }
+			if (!target.matches('.slider-arrow, .slider-arrow *, .dot')) return;
+
+			if (target.matches('.slider-arrow.next, .slider-arrow.next *')) {
+				position -= width * count;
+
+				position = Math.max(position, -1130);
+				list.style.marginLeft = position + 'px';
+			} else if (target.matches('.slider-arrow.prev, .slider-arrow.prev *')) {
+
+				position += width * count;
+
+				position = Math.min(position, 0)
+				list.style.marginLeft = position + 'px';
+            }
+		});
+    }
 
     gallerySliderActivate() {
         const slides = document.querySelectorAll('.gallery-slider .slide'),

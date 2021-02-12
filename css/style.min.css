@@ -1536,22 +1536,35 @@ nav.popup-menu .close-menu-btn img {
 }
 
 .services-slider {
-    display: flex;
+    display: block;
+    
     margin: 0 auto;
     padding-left: 15px;
     padding-right: 15px;
     position: relative;
 }
 
+.gallery {
+    overflow: hidden;
+}
+
+.carousel {
+    width: 9999px;
+    transition: margin-left 250ms;
+}
+
 .services-slider .slide {
+    vertical-align: top;
     text-align: center;
+    box-sizing: border-box;
+    display: inline-block;
     margin-right: 6px;
     margin-left: 6px;
     width: 210px
 }
 
 .services-slider .slide img {
-    margin: 0 auto 19px
+    margin: 0 auto 19px;
 }
 
 .services-slider .slide h6 {
@@ -1595,7 +1608,7 @@ nav.popup-menu .close-menu-btn img {
 }
 
 .services-slider .slider-arrow.next {
-    right: 2px
+    right: -4px
 }
 
 #gallery {
